@@ -87,13 +87,6 @@ $(window).on('load', function() {
 
     // Load tiles
     addBaseMap();
-
-    // Add zoom controls if needed
-    if (getSetting('_zoomControls') !== 'off') {
-      L.control.zoom({
-        position: getSetting('_zoomControls')
-      }).addTo(map);
-    }
     
     var markers = [];
     changeMarkerColor = function(n, from, to) {
@@ -133,13 +126,6 @@ $(window).on('load', function() {
       } else {
         markers.push(null);
       }
-
-      // add easy button
-      var helloPopup = L.popup().setContent('Hello World!');
-      
-      L.easyButton('fa-globe', function(btn, map){
-    helloPopup.setLatLng(map.getCenter()).openOn(map);
-}).addTo(map);
       
       // Add chapter container
       var container = $('<div></div>', {
