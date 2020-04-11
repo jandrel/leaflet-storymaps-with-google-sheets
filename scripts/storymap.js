@@ -87,7 +87,14 @@ $(window).on('load', function() {
 
     // Load tiles
     addBaseMap();
-    
+
+    // Add zoom controls if needed
+    if (getSetting('_zoomControls') !== 'off') {
+      L.control.zoom({
+        position: getSetting('_zoomControls')
+      }).addTo(map);
+    }
+
     var markers = [];
     changeMarkerColor = function(n, from, to) {
       if (markers[n]) {
@@ -126,7 +133,7 @@ $(window).on('load', function() {
       } else {
         markers.push(null);
       }
-      
+
       // Add chapter container
       var container = $('<div></div>', {
         id: 'container' + i,
