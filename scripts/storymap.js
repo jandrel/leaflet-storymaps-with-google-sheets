@@ -87,7 +87,6 @@ $(window).on('load', function() {
 
     // Load tiles
     addBaseMap();
-    
 
     // Add zoom controls if needed
     if (getSetting('_zoomControls') !== 'off') {
