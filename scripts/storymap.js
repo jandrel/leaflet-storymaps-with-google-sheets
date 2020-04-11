@@ -85,6 +85,25 @@ $(window).on('load', function() {
     // Load tiles
     addBaseMap();
 
+    //add title box to the map
+    function addTitle() {
+    var dispTitle = getSetting('_mapTitleDisplay');
+
+    if (dispTitle !== 'off') {
+      var title = '<h3 class="pointer">' + getSetting('_mapTitle') + '</h3>';
+      var subtitle = '<h5>' + getSetting('_mapSubtitle') + '</h5>';
+
+      if (dispTitle == 'topleft') {
+        $('div.leaflet-top').prepend('<div class="map-title leaflet-bar leaflet-control leaflet-control-custom">' + title + subtitle + '</div>');
+      } else if (dispTitle == 'topcenter') {
+        $('#map').append('<div class="div-center"></div>');
+        $('.div-center').append('<div class="map-title leaflet-bar leaflet-control leaflet-control-custom">' + title + subtitle + '</div>');
+      }
+
+      $('.map-title h3').click(function() { location.reload(); });
+    }
+  }
+    
     // Add zoom controls if needed
     if (getSetting('_zoomControls') !== 'off') {
       L.control.zoom({
