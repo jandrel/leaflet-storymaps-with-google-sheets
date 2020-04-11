@@ -87,6 +87,10 @@ $(window).on('load', function() {
 
     // Load tiles
     addBaseMap();
+    
+    L.easyButton('<img src="https://pdxcyclesafetymap.neocities.org/images/blackSkull.svg" style="width:16px">', function(btn, map){
+    helloPopup.setLatLng(map.getCenter()).openOn(map);
+}).addTo(map);
 
     // Add zoom controls if needed
     if (getSetting('_zoomControls') !== 'off') {
