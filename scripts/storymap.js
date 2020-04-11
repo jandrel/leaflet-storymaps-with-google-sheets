@@ -95,6 +95,32 @@ $(window).on('load', function() {
       }).addTo(map);
     }
 
+        // Add Nominatim Search control
+    if (getSetting('_mapSearch') !== 'off') {
+      var geocoder = L.Control.geocoder({
+        expand: 'click',
+        position: getSetting('_mapSearch'),
+        
+        geocoder: L.Control.Geocoder.nominatim({
+          geocodingQueryParams: {
+            viewbox: '',  // by default, viewbox is empty
+            bounded: 1,
+          }
+        }),
+      }).addTo(map);
+
+      function updateGeocoderBounds() {
+        var bounds = map.getBounds();
+        geocoder.options.geocoder.options.geocodingQueryParams.viewbox = [
+            bounds._southWest.lng, bounds._southWest.lat,
+            bounds._northEast.lng, bounds._northEast.lat
+          ].join(',');
+      }
+
+      // Update search viewbox coordinates every time the map moves
+      map.on('moveend', updateGeocoderBounds);
+    }
+    
     var markers = [];
     changeMarkerColor = function(n, from, to) {
       if (markers[n]) {
