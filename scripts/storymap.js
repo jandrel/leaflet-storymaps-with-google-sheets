@@ -111,6 +111,20 @@ $(window).on('load', function() {
       }).addTo(map);
     }
 
+     // Add Nominatim Search control
+    if (getSetting('_mapSearch') !== 'off') {
+      var geocoder = L.Control.geocoder({
+        expand: 'click',
+        position: getSetting('_mapSearch'),
+        
+        geocoder: L.Control.Geocoder.nominatim({
+          geocodingQueryParams: {
+            viewbox: '',  // by default, viewbox is empty
+            bounded: 1,
+          }
+        }),
+      }).addTo(map);
+    
     var chapters = mapData.sheets(constants.chaptersSheetName).elements;
 
     var markers = [];
