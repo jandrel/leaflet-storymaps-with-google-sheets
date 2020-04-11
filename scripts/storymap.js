@@ -134,6 +134,13 @@ $(window).on('load', function() {
         markers.push(null);
       }
 
+      // add easy button
+      var helloPopup = L.popup().setContent('Hello World!');
+      
+      L.easyButton('fa-globe', function(btn, map){
+    helloPopup.setLatLng(map.getCenter()).openOn(map);
+}).addTo(map);
+      
       // Add chapter container
       var container = $('<div></div>', {
         id: 'container' + i,
