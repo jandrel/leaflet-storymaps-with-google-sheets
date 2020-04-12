@@ -330,9 +330,9 @@ $(window).on('load', function() {
 
     $('#contents').append(" \
       <div id='space-at-the-bottom'> \
-        <a href='#top'>  \
-          <i class='fa fa-chevron-up'></i></br> \
-          <small>Top</small>  \
+        <a href='https://mappingtheuppermissouri.com'>  \
+          <i class='fas fa-home'></i></br> \
+          <small>Return Home</small>  \
         </a> \
       </div> \
     ");
