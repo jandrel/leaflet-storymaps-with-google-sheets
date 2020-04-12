@@ -332,7 +332,7 @@ $(window).on('load', function() {
       <div id='space-at-the-bottom'> \
         <a href='https://mappingtheuppermissouri.com'>  \
           <i class='fas fa-home'></i></br> \
-          <small>Return Home</small>  \
+          <large>Return Home</large>  \
         </a> \
       </div> \
     ");
