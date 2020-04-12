@@ -331,7 +331,7 @@ $(window).on('load', function() {
     $('#contents').append(" \
       <div id='space-at-the-bottom'> \
         <a href='https://www.mappingtheuppermissouri.com/'>  \
-          <i class='fas fa-home'></i></br> \
+          <i class='fas fa-home fa-lg'></i></br> \
           <medium>Return Home</medium>  \
         </a> \
       </div> \
@@ -355,10 +355,10 @@ $(window).on('load', function() {
 
 
     endPixels = parseInt(getSetting('_pixelsAfterFinalChapter'));
-    if (endPixels > 25) {
+    if (endPixels > 100) {
       $('#space-at-the-bottom').css({
-        'height': (endPixels / 2) + 'px',
-        'padding-top': (endPixels / 2) + 'px',
+        'height': (endPixels / 1) + 'px',
+        'padding-top': (endPixels / 1) + 'px',
       });
     }
 
